@@ -1,0 +1,64 @@
+[
+  {
+     "id": "1588947442213",
+     "displayName": "Test Gateway",
+     "ipv4_address": "192.169.43.5",
+     "p_devices": [
+        {
+           "uid": 12235457676512354,
+           "vendor": "LG",
+           "createdDate": "2020-05-08T13:07:11.000Z",
+           "status": 0
+        },
+        {
+           "uid": 122354212315634,
+           "vendor": "Huawei",
+           "createdDate": "2020-05-08T13:07:11.000Z",
+           "status": 1
+        },
+        {
+           "uid": 12235451231235612,
+           "vendor": "SAMSUNG 10",
+           "createdDate": "2020-05-08T13:07:11.000Z",
+           "status": 1
+        },
+        {
+           "uid": 543545721112234634,
+           "vendor": "Motorola",
+           "createdDate": "2020-05-08T13:07:11.000Z",
+           "status": 0
+        }
+     ]
+  },
+  {
+     "id": "1588947442213",
+     "displayName": "Test Gateway",
+     "ipv4_address": "192.169.43.6",
+     "p_devices": [
+        {
+           "uid": 1223545767656312314,
+           "vendor": "LG",
+           "createdDate": "2020-05-08T13:07:11.000Z",
+           "status": 0
+        },
+        {
+           "uid": 1223542364656523534,
+           "vendor": "Huawei",
+           "createdDate": "2020-05-08T13:07:11.000Z",
+           "status": 1
+        },
+        {
+           "uid": 122354576765612345,
+           "vendor": "SAMSUNG",
+           "createdDate": "2020-05-08T13:07:11.000Z",
+           "status": 1
+        },
+        {
+           "uid": 543545712367656345234,
+           "vendor": "Motorola",
+           "createdDate": "2020-05-08T13:07:11.000Z",
+           "status": 0
+        }
+     ]
+  }
+]
