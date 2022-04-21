@@ -10,7 +10,7 @@ const AddGatwaySchema = yup.object({
     ipv4_address: yup
       .string("invalid data")
       .min(8)
-      .max(14)
+      .max(40)
       .required("invalid data"),
   }),
 });
