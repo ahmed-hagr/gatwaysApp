@@ -58,16 +58,15 @@ router.post("/addDevice", (req, res) => {
 //    delete device
 router.delete("/device", (req, res) => {
   myData.some((gatway) =>
-    gatway.p_devices.filter((device) =>
-      device.uid == req.body.deviceuid
-        ? myData.p_devices.pop(gatway.p_devices)
-        : res.json({ status: "failed" })
-    )
+  gatway.ipv4_address==req.body.ipv4_address ?
+  gatway.p_devices.filter((device) =>
+  device.uid == req.body.uid ?
+   res.json({ status: device.uid }):
+   res.json({ status: "FAILED" })  )  
+  :res.json({ status: "FAILED" })  
   );
-  res.json({ status: "success" });
 });
 
-//  delete gatway
 
 router.delete("/gatway", (req, res) => {
   myData.filter((gatway) =>
