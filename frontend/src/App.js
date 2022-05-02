@@ -13,6 +13,8 @@ function App() {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/Gatways" exact component={Gatways} />
+            {/* <Route path="/Gatway:id" exact component={Gatway} /> */}
+
           </Switch>
       </div>
     </Router>

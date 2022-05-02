@@ -36,11 +36,16 @@ router.get("/Gatways", (req, res) => {
 
 // add gatway
 
-router.post("/addGatway", validate(AddGatwaySchema), (req, res) => {
-  myData.push(req.body);
+router.post("/addGatway", validate(AddGatwaySchema), (req, res) => 
 
-  res.json({ message: "done" });
+{
+  myData.push(req.body);
+  res.json({ message: "done" }); 
+
 });
+
+
+
 
 // add device
 router.post("/addDevice", (req, res) => {
