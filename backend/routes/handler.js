@@ -34,6 +34,8 @@ router.get("/Gatways", (req, res) => {
   res.end(JSON.stringify(myData));
 });
 
+
+
 // add gatway
 
 router.post("/addGatway", validate(AddGatwaySchema), (req, res) => 

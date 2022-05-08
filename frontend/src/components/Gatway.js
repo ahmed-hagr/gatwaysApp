@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
 // import {Link} from 'react-router-dom';
 import Addgatwayform from "./addGatwayform";
+import { useParams } from "react-router-dom";
 
-import {
-
-  Link 
-} from "react-router-dom";
-
-export default class Gatways extends React.Component {
+export default class Gatway extends React.Component {
   state = {
-    data: [],
-    items: [],
+    gatway: [],
+
   };
 
   constructor(props) {
@@ -18,22 +14,31 @@ export default class Gatways extends React.Component {
   }
 
   componentDidMount() {
-    // this.context.check()
-    this.handleGetgatways();
+    this.handleGetgatways( );
   }
   handleGetgatways = async () => {
+
     const data = await fetch("/Gatways");
-    const items = await data.json();
+    const gatways = await data.json();
+
+    const gatway =gatways.filter(gatway => gatway.id == this.props.match.params.id.substring(1))
+    console.log(gatway)
     this.setState({
-      data: data,
-      items: items,
+      gatway: gatway,
     });
+    console.log(this.state.gatway)
+    
   };
 
   render() {
     return (
       <section>
-        <div className="container">
+         <div className="col-12 my-3">
+              <div class="alert alert-primary" role="alert">
+              {console.log(this.state.gatway)}
+              </div>
+            </div>
+        {/* <div className="container">
           <div className="row">
             <div className="col-12 mt-5">
               <Addgatwayform
@@ -57,16 +62,9 @@ export default class Gatways extends React.Component {
                   </tr>
                 </thead>
                 <tbody>
-                  {this.state.items.map((item) => (
+                  {this.state.gatway.map((item) => (
                     <tr>
-                      <td>
-                        <Link
-                          // className="br-logo justify-content-center mb-2 pl-0"
-                          to={"/Gatway:" + item.id}
-                        >
-                          {item.displayName}
-                        </Link>
-                      </td>
+                      <td>{item.displayName}</td>
                       <td>{item.ipv4_address}</td>
                       <td>
                         {item.p_devices
@@ -82,7 +80,7 @@ export default class Gatways extends React.Component {
               </table>
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
     );
   }

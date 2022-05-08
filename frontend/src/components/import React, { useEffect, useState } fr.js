@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
 // import {Link} from 'react-router-dom';
 import Addgatwayform from "./addGatwayform";
+import { useParams } from "react-router-dom";
 
-import {
-
-  Link 
-} from "react-router-dom";
-
-export default class Gatways extends React.Component {
+export default class Gatway extends React.Component {
   state = {
-    data: [],
-    items: [],
+    gatway: [],
+
   };
 
   constructor(props) {
@@ -18,16 +14,21 @@ export default class Gatways extends React.Component {
   }
 
   componentDidMount() {
-    // this.context.check()
-    this.handleGetgatways();
+    this.handleGetgatways(this.props.match.params.id );
   }
-  handleGetgatways = async () => {
+  handleGetgatways = async (id) => {
+
+    console.log(id)
     const data = await fetch("/Gatways");
-    const items = await data.json();
+    const gatways = await data.json();
+
+    const gatway =await gatways.filter(gatway => gatway.id == id.substring(1))
+    console.log(gatway)
     this.setState({
-      data: data,
-      items: items,
+      gatway: gatway,
     });
+    console.log(this.state.gatway)
+    
   };
 
   render() {
@@ -36,14 +37,14 @@ export default class Gatways extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-12 mt-5">
-              <Addgatwayform
+              {/* <Addgatwayform
                 // addgatway={this.addgatway}
                 handleGetgatways={this.handleGetgatways}
-              />
+              /> */}
             </div>
             <div className="col-12 my-3">
               <div class="alert alert-primary" role="alert">
-                Gateways List
+                {this.state.gatway.displayName}
               </div>
             </div>
             <div className="col-12 my-2">
@@ -57,23 +58,12 @@ export default class Gatways extends React.Component {
                   </tr>
                 </thead>
                 <tbody>
-                  {this.state.items.map((item) => (
+                  {this.state.gatway.p_devices.map((device) => (
                     <tr>
+                      <td>{device.vendor}</td>
+                      <td>{device.uid}</td>
                       <td>
-                        <Link
-                          // className="br-logo justify-content-center mb-2 pl-0"
-                          to={"/Gatway:" + item.id}
-                        >
-                          {item.displayName}
-                        </Link>
-                      </td>
-                      <td>{item.ipv4_address}</td>
-                      <td>
-                        {item.p_devices
-                          ? item.p_devices.map((device) => (
-                              <h6>{device.vendor + " - " + device.uid}</h6>
-                            ))
-                          : "0 devices"}
+                       {device.status==0?"offline":"online"}
                       </td>
                       <td>actions</td>
                     </tr>
