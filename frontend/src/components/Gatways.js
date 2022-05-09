@@ -53,7 +53,6 @@ export default class Gatways extends React.Component {
                     <th scope="col">Gateway Name</th>
                     <th scope="col">IP Address</th>
                     <th scope="col">Peripheral Devices</th>
-                    <th scope="col">actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -75,7 +74,6 @@ export default class Gatways extends React.Component {
                             ))
                           : "0 devices"}
                       </td>
-                      <td>actions</td>
                     </tr>
                   ))}
                 </tbody>
